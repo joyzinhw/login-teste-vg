@@ -54,7 +54,13 @@ body {
     gap: 1rem; 
 }
 
-.form-header h1::after {
+.form-header h1 {
+    margin-bottom: 2rem; 
+}
+
+
+.form-header h1::after { /* traço com cor */
+    margin-bottom: 2rem; 
     content: '';
     display: block;
     width: 5rem;
@@ -63,6 +69,7 @@ body {
     margin: 0 auto;
     position: absolute;
     border-radius: 10px;
+    
 }
 
 .input-group {
@@ -107,10 +114,13 @@ body {
     color: #000000be;
 }
 
+
 .button {
     width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
-
 .button button {
     width: 100%;
     margin-top: 1.0rem;
@@ -134,4 +144,55 @@ body {
     font-size: 0.93rem;
     font-weight: 500;
     color: hsl(0, 0%, 0%);
+}
+
+.button p {
+   
+    text-align: center;
+    font-size: 0.9rem; 
+    color: #53566e;
+}
+
+.button p a {
+    color: #5568fe;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.button p a:hover {
+    text-decoration: underline; 
+}
+
+
+@media screen and (max-width: 1330px) {
+    .form-image {
+        display: none;
+    }
+    .container {
+        width: 50%;
+    }
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%;
+        height: auto;
+        align-items: center; 
+    }
+    .input-group {
+        flex-direction: column;
+        z-index: 5;
+        max-height: 10rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        align-items: center; 
+    }
+    .button {
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        align-items: center; 
+    }
 }
