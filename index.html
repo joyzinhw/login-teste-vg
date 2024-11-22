@@ -4,54 +4,84 @@
 <head>
     <meta name="author" content="@joyzinhw">
     <meta name="description" content="codpet, um site de login">
-    <meta name="keywords" content="sites, web, login>
+    <meta name="keywords" content="sites, web, login">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css"> <!--import do css-->
     <link rel="icon" href="/assets/img/login.svg" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!--import do icone do olho-->
+
     <title>login</title>
 </head>
+
 <body>
     
     <div class="container">
         <div class="form-image">
-            <img src="#" alt="#">
+            <img src="/assets/img/login-foto.png" alt="#">
         </div>
+       
         <div class="form">
-            <form action="#">
+            <form id="loginForm" action="#" method="POST">
                 <div class="form-header">
                     <div class="title">
                         <h1>Login</h1>
                     </div>
                 </div>
-
-                <div class="input-group"> <!--inputs-->
-
+        
+                <div class="input-group"> 
                     <div class="input-box">
                         <label for="email">E-mail</label>
                         <input id="email" type="email" name="email" placeholder="Digite o seu e-mail" required maxlength="40" autofocus>
-                   <div class="button">
-                            <button><a href="#">Entrar</a></button>
-                        </div>
                     </div>
-
-
                     <div class="input-box">
                         <label for="password">Senha</label>
-                        <input id="password" type="password" name="password" placeholder="Digite a sua senha" required maxlength="8" minlength="8" autofocus>
-                        <div class="button">
-                            <button><a href="#">Esqueci a senha</a></button>
+                        <div class="password-input-container">
+                            <input id="password" type="password" name="password" placeholder="Digite a sua senha" required maxlength="8" minlength="8">
+                            <i class="fa-regular fa-eye-slash" id="toggle-password"></i>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="button">
-                    <p>Ainda não possui uma conta?</p>
-                    <p><a href="#">Crie uma conta!</a></p>
                 </div>
                 
+                <div class="button">
+                    <button type="submit">Entrar</button>
+                    <button type="button"><a href="#">Esqueci a senha</a></button>
+                </div>
+                
+            </form>
 
+            <br>
+            <div class="footer">
+                <p>Ainda não possui uma conta?</p>
+                <p><a href="#">Crie uma conta!</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // a visibilidade da senha
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const icon = this;
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';  // Mostrar senha
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordField.type = 'password';  // Ocultar senha
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            window.location.href = "https://open.spotify.com/playlist/4BTR5qIxdd9KHDibqNIFRD?si=7bbeddcb730843cf"; 
+        });
+    </script>
 </body>
+
 </html>
